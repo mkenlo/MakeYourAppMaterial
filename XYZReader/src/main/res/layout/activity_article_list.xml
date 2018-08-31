@@ -1,52 +1,45 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="112dp"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/Theme.Bacon.AppBarOverlay">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="center"
-                android:src="@drawable/logo"
-                android:contentDescription="@string/app_name" />
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/Theme.Bacon.PopupOverlay"
+            app:title="@string/app_name">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_container"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                android:layout_gravity="bottom"/>
-        </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.v7.widget.Toolbar>
+
     </android.support.design.widget.AppBarLayout>
 
-
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh_layout"
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingBottom="28dp"
-                android:paddingLeft="@dimen/list_side_margin"
-                android:paddingRight="@dimen/list_side_margin"
-                android:paddingTop="116dp"
-                android:scrollbarStyle="outsideOverlay" />
-        </android.support.v4.widget.SwipeRefreshLayout>
-
-
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="28dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="112dp"
+            android:scrollbarStyle="outsideOverlay" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </android.support.design.widget.CoordinatorLayout>
